@@ -1,3 +1,9 @@
 del *.bak /s /f /q
 del *.ppu /s /f /q
 del *.obj /s /f /q
+del *.o /s /f /q
+del *.a /s /f /q
+del *.compiled /s /f /q
+del ".\bin\release\*.exe" /s /f /q
+del ".\bin\debug\*.exe" /s /f /q
+del ".\bin\*.exe /s /f /q

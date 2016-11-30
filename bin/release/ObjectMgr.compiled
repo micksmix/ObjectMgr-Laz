@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="C:\lazarus\fpc\3.0.0\bin\x86_64-win64\fpc.exe" Date="1231859847"/>
-  <Params Value=" -Mfpc -Scghi -CX -O3 -XX -WG -l -vewnhibq -FiC:\mick\code\ObjectMgr-Laz\bin\release -FuC:\lazarus\components\lazcontrols\lib\x86_64-win64\win32 -FuC:\lazarus\lcl\units\x86_64-win64\win32 -FuC:\lazarus\lcl\units\x86_64-win64 -FuC:\lazarus\components\lazutils\lib\x86_64-win64 -FuC:\lazarus\packager\units\x86_64-win64 -FuC:\mick\code\ObjectMgr-Laz\ -FUC:\mick\code\ObjectMgr-Laz\bin\release\ -FEC:\mick\code\ObjectMgr-Laz\bin\release\ -dLCL -dLCLwin32 ObjectMgr.lpr"/>
-</CONFIG>
