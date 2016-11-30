@@ -1,6 +1,6 @@
 object MainForm: TMainForm
   Left = 344
-  Height = 586
+  Height = 566
   Top = 63
   Width = 834
   ActiveControl = PageControl1
@@ -16,10 +16,11 @@ object MainForm: TMainForm
   OnDestroy = FormDestroy
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
+  Visible = False
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 543
+    Top = 523
     Width = 834
     Panels = <    
       item
@@ -28,7 +29,7 @@ object MainForm: TMainForm
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 543
+    Height = 523
     Top = 0
     Width = 834
     ActivePage = TSObjectNamespace
@@ -39,17 +40,17 @@ object MainForm: TMainForm
     OnChanging = PageControl1Changing
     object TSObjectNamespace: TTabSheet
       Caption = 'Object Manager Namespace'
-      ClientHeight = 517
+      ClientHeight = 497
       ClientWidth = 826
       object Splitter1: TSplitter
         Left = 165
-        Height = 517
+        Height = 497
         Top = 0
         Width = 5
       end
       object DirectoryList: TTreeView
         Left = 0
-        Height = 517
+        Height = 497
         Top = 0
         Width = 165
         Align = alLeft
@@ -66,7 +67,7 @@ object MainForm: TMainForm
       end
       object ObjectList: TListView
         Left = 170
-        Height = 517
+        Height = 497
         Top = 0
         Width = 656
         Align = alClient
@@ -83,7 +84,6 @@ object MainForm: TMainForm
             Caption = 'Symlink'
             Width = 150
           end>
-        PopupMenu = PopupMenu1
         ReadOnly = True
         RowSelect = True
         SmallImages = TreeViewImgList
@@ -882,13 +882,5 @@ object MainForm: TMainForm
       00FF000000FF000000FF000000FF000000FF000000FF00000000000000000000
       0000000000000000000000000000
     }
-  end
-  object PopupMenu1: TPopupMenu
-    left = 568
-    top = 72
-    object MenuItem1: TMenuItem
-      Caption = 'Properties'
-      OnClick = MenuItem1Click
-    end
   end
 end
