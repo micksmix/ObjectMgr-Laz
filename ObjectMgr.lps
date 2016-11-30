@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Release"/>
+    <Units Count="13">
+      <Unit0>
+        <Filename Value="ObjectMgr.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="30"/>
+        <CursorPos X="2" Y="42"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="MainFormUnit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="262"/>
+        <CursorPos X="40" Y="387"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="156"/>
+        <CursorPos X="44" Y="157"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="AboutUnit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AboutForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="29"/>
+        <CursorPos X="20" Y="35"/>
+        <UsageCount Value="29"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="JwaNative.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="8303"/>
+        <CursorPos X="25" Y="8311"/>
+        <UsageCount Value="29"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="JwaNtStatus.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="29"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="JwaWinBase.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="29"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="JwaWinNT.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="9145"/>
+        <CursorPos X="13" Y="9153"/>
+        <UsageCount Value="29"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="JwaWinType.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="29"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="UnicodeString.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="29"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="AboutUnit.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="89"/>
+        <UsageCount Value="20"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="MainFormUnit.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="157"/>
+        <CursorPos X="21" Y="8"/>
+        <UsageCount Value="20"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="C:\lazarus\lcl\themes.pas"/>
+        <UnitName Value="Themes"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="520"/>
+        <CursorPos Y="530"/>
+        <UsageCount Value="9"/>
+      </Unit12>
+    </Units>
+    <JumpHistory Count="18" HistoryIndex="17">
+      <Position1>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="40" Column="26" TopLine="39"/>
+      </Position1>
+      <Position2>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="343" Column="49" TopLine="334"/>
+      </Position2>
+      <Position3>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="57" Column="5" TopLine="47"/>
+      </Position3>
+      <Position4>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="345" Column="14" TopLine="333"/>
+      </Position4>
+      <Position5>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="344" Column="28" TopLine="335"/>
+      </Position5>
+      <Position6>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="342" Column="8" TopLine="334"/>
+      </Position6>
+      <Position7>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="111" Column="11" TopLine="108"/>
+      </Position7>
+      <Position8>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="345" Column="24" TopLine="333"/>
+      </Position8>
+      <Position9>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="495" Column="76" TopLine="483"/>
+      </Position9>
+      <Position10>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="118" Column="3" TopLine="114"/>
+      </Position10>
+      <Position11>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="343" Column="49" TopLine="333"/>
+      </Position11>
+      <Position12>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="495" Column="49" TopLine="483"/>
+      </Position12>
+      <Position13>
+        <Filename Value="MainFormUnit.pas"/>
+        <Caret Line="37" TopLine="29"/>
+      </Position13>
+      <Position14>
+        <Filename Value="ObjectMgr.lpr"/>
+        <Caret Line="40" Column="37" TopLine="28"/>
+      </Position14>
+      <Position15>
+        <Filename Value="ObjectMgr.lpr"/>
+        <Caret Line="38" Column="3" TopLine="26"/>
+      </Position15>
+      <Position16>
+        <Filename Value="ObjectMgrHelper.pas"/>
+        <Caret Line="157" Column="44" TopLine="156"/>
+      </Position16>
+      <Position17>
+        <Filename Value="ObjectMgr.lpr"/>
+        <Caret Line="48" TopLine="30"/>
+      </Position17>
+      <Position18>
+        <Filename Value="MainFormUnit.pas"/>
+        <Caret Line="272" Column="30" TopLine="261"/>
+      </Position18>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
