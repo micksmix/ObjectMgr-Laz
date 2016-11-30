@@ -1,4 +1,7 @@
-﻿=================================
+This is a Lazarus port of the Delphi "Object Manager Namespace Viewer". All credits go to the original authors. Original readme is below.
+
+
+=================================
  Object Manager Namespace Viewer
 =================================
 :Author: Oliver Schneider
