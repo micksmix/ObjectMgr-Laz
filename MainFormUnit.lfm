@@ -1,11 +1,11 @@
 object MainForm: TMainForm
-  Left = 316
+  Left = 344
   Height = 586
-  Top = 204
+  Top = 63
   Width = 834
   ActiveControl = PageControl1
   Caption = 'Object Manager Namespace Listing - (c) 2005 by assarbad & brakelm at users dot sf dot net'
-  ClientHeight = 586
+  ClientHeight = 566
   ClientWidth = 834
   Color = clBtnFace
   Font.Color = clWindowText
@@ -16,7 +16,6 @@ object MainForm: TMainForm
   OnDestroy = FormDestroy
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
-  Visible = False
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
@@ -84,6 +83,7 @@ object MainForm: TMainForm
             Caption = 'Symlink'
             Width = 150
           end>
+        PopupMenu = PopupMenu1
         ReadOnly = True
         RowSelect = True
         SmallImages = TreeViewImgList
@@ -882,5 +882,16 @@ object MainForm: TMainForm
       00FF000000FF000000FF000000FF000000FF000000FF00000000000000000000
       0000000000000000000000000000
     }
+  end
+  object PopupMenu1: TPopupMenu
+    left = 568
+    top = 72
+    object mnuProperties: TMenuItem
+      Caption = 'Properties'
+      OnClick = mnuPropertiesClick
+    end
+    object mnuBruteforceOCTLs: TMenuItem
+      Caption = 'Bruteforce IOCTL''s'
+    end
   end
 end

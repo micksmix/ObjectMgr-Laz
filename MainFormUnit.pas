@@ -40,7 +40,7 @@ interface
 
 uses
   LCLIntf, LResources, LCLType, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  ComCtrls, ExtCtrls, Menus, ObjectMgrHelper, ImgList, StdCtrls, UnicodeString, AboutUnit;
+  ComCtrls, ShellAPI, ExtCtrls, Menus, ObjectMgrHelper, ImgList, StdCtrls, UnicodeString, AboutUnit;
 
 
 type
@@ -50,7 +50,12 @@ type
     SortbyType
     );
 
+  { TMainForm }
+
   TMainForm = class(TForm)
+    mnuProperties: TMenuItem;
+    mnuBruteforceOCTLs: TMenuItem;
+    PopupMenu1: TPopupMenu;
     StatusBar1: TStatusBar;
     MainMenu: TMainMenu;
     MainMenuFile: TMenuItem;
@@ -75,6 +80,7 @@ type
     procedure DirectoryListChange(Sender: TObject; Node: TTreeNode);
     procedure MainMenuFileExitClick(Sender: TObject);
     procedure DirectoryListKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure mnuPropertiesClick(Sender: TObject);
     procedure ObjectListCompare(Sender: TObject; Item1, Item2: TListItem; Data: Integer; var Compare: Integer);
     procedure ObjectListDblClick(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
@@ -220,6 +226,31 @@ begin
     FObjectList.RefreshList;
     FillTreeView;
   end;
+end;
+
+
+procedure TMainForm.mnuPropertiesClick(Sender: TObject);
+var
+  sei: TShellExecuteInfoA;
+begin
+  {
+  FillChar(sei, SizeOf(sei), 0);
+  sei.cbSize := SizeOf(sei);
+  sei.Wnd := Handle;
+  sei.fMask := SEE_MASK_FLAG_DDEWAIT or SEE_MASK_FLAG_NO_UI;
+  sei.lpVerb := 'runas';
+  sei.lpFile := PAnsiChar(Path);
+  sei.lpParameters := PAnsiChar(Params);
+  sei.nShow := SW_SHOWNORMAL;
+  Result := ShellExecuteExA(@sei);
+  }
+  FillChar(sei, SizeOf(sei), 0);
+  sei.cbSize := SizeOf(sei);
+  sei.lpFile := PChar('\\GLOBAL??\\VBoxGuest');//'c:\tools\psexec.exe');
+  sei.lpVerb := 'properties';
+  sei.fMask  := SEE_MASK_INVOKEIDLIST;
+  ShellAPI.ShellExecuteExA(@sei);
+
 end;
 
 procedure TMainForm.LVMailslotsKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
