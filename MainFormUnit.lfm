@@ -1,7 +1,13 @@
 object MainForm: TMainForm
+<<<<<<< HEAD
   Left = 334
   Height = 566
   Top = 36
+=======
+  Left = 344
+  Height = 566
+  Top = 63
+>>>>>>> 5acbfdb1950e35a105d60ef218a503c4d4ef28a0
   Width = 834
   ActiveControl = PageControl1
   ClientHeight = 566
@@ -83,7 +89,6 @@ object MainForm: TMainForm
             Caption = 'Symlink'
             Width = 150
           end>
-        PopupMenu = PopupMenu1
         ReadOnly = True
         RowSelect = True
         SmallImages = TreeViewImgList
@@ -883,6 +888,7 @@ object MainForm: TMainForm
       0000000000000000000000000000
     }
   end
+<<<<<<< HEAD
   object PopupMenu1: TPopupMenu
     left = 568
     top = 72
@@ -895,4 +901,6 @@ object MainForm: TMainForm
       OnClick = mnuBruteforceOCTLsClick
     end
   end
+=======
+>>>>>>> 5acbfdb1950e35a105d60ef218a503c4d4ef28a0
 end
