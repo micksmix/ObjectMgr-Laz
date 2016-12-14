@@ -142,7 +142,6 @@
       <Unit11>
         <Filename Value="uioctl.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uioctl"/>
       </Unit11>
     </Units>
   </ProjectOptions>
@@ -151,7 +150,7 @@
     <PathDelim Value="\"/>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <UnitOutputDirectory Value="$(ProjOutDir)/units"/>
+      <UnitOutputDirectory Value="$(ProjOutDir)\units"/>
     </SearchPaths>
     <Linking>
       <Options>

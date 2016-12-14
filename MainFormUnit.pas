@@ -53,6 +53,9 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
+    mnuBruteforceOCTLs: TMenuItem;
+    mnuProperties: TMenuItem;
+    PopupMenu1: TPopupMenu;
     StatusBar1: TStatusBar;
     MainMenu: TMainMenu;
     MainMenuFile: TMenuItem;

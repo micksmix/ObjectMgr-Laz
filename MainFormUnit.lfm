@@ -53,7 +53,7 @@ object MainForm: TMainForm
         Top = 0
         Width = 165
         Align = alLeft
-        DefaultItemHeight = 18
+        DefaultItemHeight = 16
         Images = TreeViewImgList
         Indent = 19
         ReadOnly = True

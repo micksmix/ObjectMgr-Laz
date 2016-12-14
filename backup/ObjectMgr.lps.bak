@@ -8,6 +8,8 @@
       <Unit0>
         <Filename Value="ObjectMgr.lpr"/>
         <IsPartOfProject Value="True"/>
+        <TopLine Value="28"/>
+        <CursorPos X="33" Y="49"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -19,10 +21,11 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="71"/>
-        <CursorPos X="54" Y="78"/>
+        <TopLine Value="236"/>
+        <CursorPos X="3" Y="238"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="ObjectMgrHelper.pas"/>
@@ -82,10 +85,25 @@
         <UsageCount Value="20"/>
       </Unit11>
     </Units>
-    <JumpHistory Count="1">
+    <JumpHistory Count="5" HistoryIndex="4">
       <Position1>
         <Filename Value="MainFormUnit.pas"/>
       </Position1>
+      <Position2>
+        <Filename Value="MainFormUnit.pas"/>
+        <Caret Line="78" Column="54" TopLine="71"/>
+      </Position2>
+      <Position3>
+        <Filename Value="ObjectMgr.lpr"/>
+      </Position3>
+      <Position4>
+        <Filename Value="MainFormUnit.pas"/>
+        <Caret Line="235" TopLine="229"/>
+      </Position4>
+      <Position5>
+        <Filename Value="MainFormUnit.pas"/>
+        <Caret Line="276" Column="3" TopLine="272"/>
+      </Position5>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
