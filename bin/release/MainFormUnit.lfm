@@ -883,7 +883,6 @@ object MainForm: TMainForm
       0000000000000000000000000000
     }
   end
-<<<<<<< HEAD
   object PopupMenu1: TPopupMenu
     left = 568
     top = 72
@@ -895,6 +894,4 @@ object MainForm: TMainForm
       Caption = 'Bruteforce IOCTL''s'
     end
   end
-=======
->>>>>>> 5acbfdb1950e35a105d60ef218a503c4d4ef28a0
 end

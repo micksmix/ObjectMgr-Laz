@@ -76,16 +76,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure DirectoryListChange(Sender: TObject; Node: TTreeNode);
     procedure MainMenuFileExitClick(Sender: TObject);
-<<<<<<< HEAD
     procedure DirectoryListKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure mnuBruteforceOCTLsClick(Sender: TObject);
     procedure mnuPropertiesClick(Sender: TObject);
     procedure ObjectListCompare(Sender: TObject; Item1, Item2: TListItem;
       Data: integer; var Compare: integer);
-=======
-    procedure DirectoryListKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure ObjectListCompare(Sender: TObject; Item1, Item2: TListItem; Data: Integer; var Compare: Integer);
->>>>>>> 5acbfdb1950e35a105d60ef218a503c4d4ef28a0
     procedure ObjectListDblClick(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
     procedure LVMailslotsKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -238,7 +233,6 @@ begin
   end;
 end;
 
-<<<<<<< HEAD
 procedure TMainForm.mnuBruteforceOCTLsClick(Sender: TObject);
 begin
 
@@ -301,9 +295,6 @@ begin
 end;
 
 procedure TMainForm.LVMailslotsKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
-=======
-procedure TMainForm.LVMailslotsKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
->>>>>>> 5acbfdb1950e35a105d60ef218a503c4d4ef28a0
 begin
   if Key = VK_F5 then
   begin

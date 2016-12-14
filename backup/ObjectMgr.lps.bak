@@ -8,7 +8,6 @@
       <Unit0>
         <Filename Value="ObjectMgr.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="70" Y="10"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -18,7 +17,12 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="71"/>
+        <CursorPos X="54" Y="78"/>
         <UsageCount Value="20"/>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="ObjectMgrHelper.pas"/>
@@ -41,7 +45,6 @@
       <Unit5>
         <Filename Value="JwaNtStatus.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
         <UsageCount Value="20"/>
       </Unit5>
       <Unit6>
@@ -71,21 +74,18 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmFuzz"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
         <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="uioctl.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uIoctl"/>
-        <EditorIndex Value="1"/>
         <UsageCount Value="20"/>
-        <Loaded Value="True"/>
       </Unit11>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="MainFormUnit.pas"/>
+      </Position1>
+    </JumpHistory>
   </ProjectSession>
 </CONFIG>

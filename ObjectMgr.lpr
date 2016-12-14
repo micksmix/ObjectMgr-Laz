@@ -46,6 +46,7 @@ uses
 {$R *.res}
 
 begin
+
   Application.Initialize;
   Application.Title := 'Object Namespace Viewer';
   Application.CreateForm(TMainForm, MainForm);

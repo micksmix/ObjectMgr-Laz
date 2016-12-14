@@ -83,7 +83,6 @@ object MainForm: TMainForm
             Caption = 'Symlink'
             Width = 150
           end>
-        PopupMenu = PopupMenu1
         ReadOnly = True
         RowSelect = True
         SmallImages = TreeViewImgList
