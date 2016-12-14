@@ -84,7 +84,7 @@
         <PackageName Value="FCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="12">
       <Unit0>
         <Filename Value="ObjectMgr.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -131,6 +131,19 @@
         <Filename Value="UnicodeString.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="frmfuzz.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormFuzz"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmFuzz"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="uioctl.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uioctl"/>
+      </Unit11>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -138,12 +151,8 @@
     <PathDelim Value="\"/>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="$(ProjOutDir)/units"/>
     </SearchPaths>
-    <Parsing>
-      <SyntaxOptions>
-        <SyntaxMode Value="fpc"/>
-      </SyntaxOptions>
-    </Parsing>
     <Linking>
       <Options>
         <Win32>

@@ -1,10 +1,9 @@
 object MainForm: TMainForm
-  Left = 344
-  Height = 586
-  Top = 63
+  Left = 334
+  Height = 566
+  Top = 36
   Width = 834
   ActiveControl = PageControl1
-  Caption = 'Object Manager Namespace Listing - (c) 2005 by assarbad & brakelm at users dot sf dot net'
   ClientHeight = 566
   ClientWidth = 834
   Color = clBtnFace
@@ -16,10 +15,11 @@ object MainForm: TMainForm
   OnDestroy = FormDestroy
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
+  Visible = False
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 543
+    Top = 523
     Width = 834
     Panels = <    
       item
@@ -28,7 +28,7 @@ object MainForm: TMainForm
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 543
+    Height = 523
     Top = 0
     Width = 834
     ActivePage = TSObjectNamespace
@@ -39,21 +39,21 @@ object MainForm: TMainForm
     OnChanging = PageControl1Changing
     object TSObjectNamespace: TTabSheet
       Caption = 'Object Manager Namespace'
-      ClientHeight = 517
+      ClientHeight = 497
       ClientWidth = 826
       object Splitter1: TSplitter
         Left = 165
-        Height = 517
+        Height = 497
         Top = 0
         Width = 5
       end
       object DirectoryList: TTreeView
         Left = 0
-        Height = 517
+        Height = 497
         Top = 0
         Width = 165
         Align = alLeft
-        DefaultItemHeight = 16
+        DefaultItemHeight = 18
         Images = TreeViewImgList
         Indent = 19
         ReadOnly = True
@@ -66,7 +66,7 @@ object MainForm: TMainForm
       end
       object ObjectList: TListView
         Left = 170
-        Height = 517
+        Height = 497
         Top = 0
         Width = 656
         Align = alClient
@@ -892,6 +892,7 @@ object MainForm: TMainForm
     end
     object mnuBruteforceOCTLs: TMenuItem
       Caption = 'Bruteforce IOCTL''s'
+      OnClick = mnuBruteforceOCTLsClick
     end
   end
 end

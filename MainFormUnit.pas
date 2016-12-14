@@ -1,23 +1,23 @@
 {******************************************************************************}
-{                                                                              }
+
 { ObjectMgr sample program to demonstrate the object namespace                 }
-{                                                                              }
+
 { MainFormUnit.pas    - Unit for the main form comprised of the list of object }
 {                       names and object directories as well as the pipes and  }
 {                       mailslots.                                             }
-{                                                                              }
+
 { Copyright (C) 2005 Marcel van Brakel (brakelm)                               }
 { Copyright (C) 2005 Oliver Schneider (assarbad)                               }
-{                                                                              }
+
 { The contents of this file are used with permission, subject to the Mozilla   }
 { Public License Version 1.1 (the "License"); you may not use this file except }
 { in compliance with the License. You may obtain a copy of the License at      }
 { http://www.mozilla.org/MPL/MPL-1.1.html                                      }
-{                                                                              }
+
 { Software distributed under the License is distributed on an "AS IS" basis,   }
 { WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for }
 { the specific language governing rights and limitations under the License.    }
-{                                                                              }
+
 { Alternatively, the contents of this file may be used under the terms of the  }
 { GNU Lesser General Public License (the  "LGPL License"), in which case the   }
 { provisions of the LGPL License are applicable instead of those above.        }
@@ -27,9 +27,9 @@
 { replace them with the notice and other provisions required by the LGPL       }
 { License. If you do not delete the provisions above, a recipient may use      }
 { your version of this file under either the MPL or the LGPL License.          }
-{                                                                              }
+
 { For more information about the LGPL: http://www.gnu.org/copyleft/lesser.html }
-{                                                                              }
+
 {******************************************************************************}
 
 unit MainFormUnit;
@@ -40,8 +40,8 @@ interface
 
 uses
   LCLIntf, LResources, LCLType, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  ComCtrls, ShellAPI, ExtCtrls, Menus, ObjectMgrHelper, ImgList, StdCtrls, UnicodeString, AboutUnit;
-
+  ComCtrls, ShellAPI, ExtCtrls, Menus, ObjectMgrHelper, ImgList, StdCtrls,
+  UnicodeString, AboutUnit, frmfuzz;
 
 type
   ObjectSortType = (
@@ -79,16 +79,19 @@ type
     procedure FormCreate(Sender: TObject);
     procedure DirectoryListChange(Sender: TObject; Node: TTreeNode);
     procedure MainMenuFileExitClick(Sender: TObject);
-    procedure DirectoryListKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure DirectoryListKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure mnuBruteforceOCTLsClick(Sender: TObject);
     procedure mnuPropertiesClick(Sender: TObject);
-    procedure ObjectListCompare(Sender: TObject; Item1, Item2: TListItem; Data: Integer; var Compare: Integer);
+    procedure ObjectListCompare(Sender: TObject; Item1, Item2: TListItem;
+      Data: integer; var Compare: integer);
     procedure ObjectListDblClick(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
-    procedure LVMailslotsKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure LVMailslotsKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure MainMenuHelpAboutClick(Sender: TObject);
-    procedure PageControl1Changing(Sender: TObject; var AllowChange: Boolean);
+    procedure PageControl1Changing(Sender: TObject; var AllowChange: boolean);
     procedure FormDestroy(Sender: TObject);
   private
+    bannedErrors : array of DWORD;
     FObjectList: TObjMgrListItem;
     FPipes: TMailslotAndPipeCollection;
     FMailslots: TMailslotAndPipeCollection;
@@ -96,8 +99,9 @@ type
     procedure FillTreeView;
     procedure FillListViewFromNode(Node: TTreeNode);
     procedure FillMailslotsAndPipesList;
-    function GetImageIdx(TypeName: string): Integer;
+    function GetImageIdx(TypeName: string): integer;
     function FindTreeNode(Path: string): TTreeNode;
+
   end;
 
 var
@@ -113,9 +117,10 @@ resourcestring
   RsSymLinkFollowed = 'Followed symlink "%s" to directory "%s"';
   RsNoTargetInNamespace = 'No such target "%s" in object namespace';
 
-procedure TMainForm.FillTreeViewRescursively(Node: TTreeNode; CurrentItem: TObjMgrListItem);
+procedure TMainForm.FillTreeViewRescursively(Node: TTreeNode;
+  CurrentItem: TObjMgrListItem);
 var
-  I: Integer;
+  I: integer;
   NextItem: TObjMgrListItem;
   NextNode: TTreeNode;
 begin
@@ -167,7 +172,7 @@ procedure TMainForm.FillListViewFromNode(Node: TTreeNode);
 var
   CurrentItem, NextItem: TObjMgrListItem;
   ListItem: TListItem;
-  I: Integer;
+  I: integer;
 begin
   if Assigned(Node.Data) then
   begin
@@ -219,7 +224,10 @@ begin
   StatusBar1.Panels[0].Text := Format(RsDirectorySelected, [S]);
 end;
 
-procedure TMainForm.DirectoryListKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+
+
+procedure TMainForm.DirectoryListKeyUp(Sender: TObject; var Key: word;
+  Shift: TShiftState);
 begin
   if Key = VK_F5 then
   begin
@@ -228,6 +236,41 @@ begin
   end;
 end;
 
+procedure TMainForm.mnuBruteforceOCTLsClick(Sender: TObject);
+begin
+
+  if Assigned(ObjectList.Selected) then  // or ListView1.Selected <> nil
+  begin
+    FormFuzz.sDevicePath := '\\.\' + ObjectList.Selected.Caption;
+  end;
+
+  try
+    FormFuzz.ShowModal();
+  finally
+
+  end;
+end;
+
+{
+procedure TForm1.ModifyTheHostIpAddress(const sHost, sGroup: string);
+var
+  frmModifyIp: TfModifyIPAddress;
+begin
+  //   frmModifyIp := TfModifyIPAddress.Create(nil);
+  try
+    frmModifyIp.sModIpHost := sHost;
+    //lblHost.Caption;
+    frmModifyIp.sModIpGroup := sGroup;
+    //lblGroup.Caption;
+    frmModifyIp.Position := poMainFormCenter;
+    frmModifyIp.ShowModal;
+  finally
+    frmModifyIp.Release;
+    Pointer(frmModifyIp) := nil;
+    //FreeAndNil(frmModifyIp);
+  end;
+end;
+}
 
 procedure TMainForm.mnuPropertiesClick(Sender: TObject);
 var
@@ -243,17 +286,18 @@ begin
   sei.lpParameters := PAnsiChar(Params);
   sei.nShow := SW_SHOWNORMAL;
   Result := ShellExecuteExA(@sei);
-  }
+  //////////////////
   FillChar(sei, SizeOf(sei), 0);
   sei.cbSize := SizeOf(sei);
-  sei.lpFile := PChar('\\GLOBAL??\\VBoxGuest');//'c:\tools\psexec.exe');
+  sei.lpFile := PChar('\Device\VBoxGuest');//'c:\tools\psexec.exe');
   sei.lpVerb := 'properties';
   sei.fMask  := SEE_MASK_INVOKEIDLIST;
   ShellAPI.ShellExecuteExA(@sei);
+  }
 
 end;
 
-procedure TMainForm.LVMailslotsKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TMainForm.LVMailslotsKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if Key = VK_F5 then
   begin
@@ -265,7 +309,7 @@ end;
 
 procedure TMainForm.FillMailslotsAndPipesList;
 var
-  I, J: Integer;
+  I, J: integer;
   ListItem: TListItem;
   ListView: TListView;
   Collection: TMailslotAndPipeCollection;
@@ -289,9 +333,12 @@ begin
       for I := 0 to Collection.ItemList.Count - 1 do
       begin
         ListItem := ListView.Items.Add;
-        ListItem.Caption := PMailslotAndPipeItem(Collection.ItemList[i])^.ItemName.AsWideString;
-        ListItem.SubItems.Add(Format('%d', [PMailslotAndPipeItem(Collection.ItemList[i])^.Instances]));
-        ListItem.SubItems.Add(Format('%d', [PMailslotAndPipeItem(Collection.ItemList[i])^.MaxInstances]));
+        ListItem.Caption := PMailslotAndPipeItem(
+          Collection.ItemList[i])^.ItemName.AsWideString;
+        ListItem.SubItems.Add(
+          Format('%d', [PMailslotAndPipeItem(Collection.ItemList[i])^.Instances]));
+        ListItem.SubItems.Add(
+          Format('%d', [PMailslotAndPipeItem(Collection.ItemList[i])^.MaxInstances]));
       end;
     finally
       ListView.Items.EndUpdate;
@@ -312,30 +359,47 @@ end;
 
 // Convert the known types into indexes of the image list
 
-function TMainForm.GetImageIdx(TypeName: string): Integer;
+function TMainForm.GetImageIdx(TypeName: string): integer;
 begin
-  if (TypeName = 'Directory') then result := 0
-  else if (TypeName = 'SymbolicLink') then result := 2
-  else if (TypeName = 'Event') then result := 5
-  else if (TypeName = 'Mutant') then result := 6
-  else if (TypeName = 'Driver') then result := 7
-  else if (TypeName = 'WindowStation') then result := 8
-  else if (TypeName = 'Section') then result := 9
-  else if (TypeName = 'Semaphore') then result := 10
-  else if (TypeName = 'Timer') then result := 12
-  else if (TypeName = 'Device') then result := 13
-  else if (TypeName = 'Type') then result := 16
-  else if (TypeName = 'Key') then result := 17
-  else if (TypeName = 'Callback') then result := 18
-  else if (TypeName = 'Port') then result := 19
-  else if (TypeName = 'WaitablePort') then result := 19
-  else result := 3; // Unknown
+  if (TypeName = 'Directory') then
+    Result := 0
+  else if (TypeName = 'SymbolicLink') then
+    Result := 2
+  else if (TypeName = 'Event') then
+    Result := 5
+  else if (TypeName = 'Mutant') then
+    Result := 6
+  else if (TypeName = 'Driver') then
+    Result := 7
+  else if (TypeName = 'WindowStation') then
+    Result := 8
+  else if (TypeName = 'Section') then
+    Result := 9
+  else if (TypeName = 'Semaphore') then
+    Result := 10
+  else if (TypeName = 'Timer') then
+    Result := 12
+  else if (TypeName = 'Device') then
+    Result := 13
+  else if (TypeName = 'Type') then
+    Result := 16
+  else if (TypeName = 'Key') then
+    Result := 17
+  else if (TypeName = 'Callback') then
+    Result := 18
+  else if (TypeName = 'Port') then
+    Result := 19
+  else if (TypeName = 'WaitablePort') then
+    Result := 19
+  else
+    Result := 3; // Unknown
 
 end;
 
-procedure TMainForm.ObjectListCompare(Sender: TObject; Item1, Item2: TListItem; Data: Integer; var Compare: Integer);
+procedure TMainForm.ObjectListCompare(Sender: TObject; Item1, Item2: TListItem;
+  Data: integer; var Compare: integer);
 var
-  I1, I2: Integer;
+  I1, I2: integer;
 begin
   if Assigned(Item1.Data) and Assigned(Item2.Data) then
   begin
@@ -365,7 +429,7 @@ end;
 
 function TMainForm.FindTreeNode(Path: string): TTreeNode;
 var
-  I: Integer;
+  I: integer;
 begin
   for I := 0 to DirectoryList.Items.Count - 1 do
   begin
@@ -383,7 +447,7 @@ procedure TMainForm.ObjectListDblClick(Sender: TObject);
 var
   Node: TTreeNode;
   S: string;
-  I: Integer;
+  I: integer;
   Item: TObjMgrListItem;
 begin
   if Assigned(ObjectList.Selected.Data) then
@@ -392,15 +456,15 @@ begin
     S := Item.FullPath;
     case GetImageIdx(Item.ObjectTypeName) of
       0: { directory }
+      begin
+        Node := FindTreeNode(S);
+        if Assigned(Node) then
         begin
-          Node := FindTreeNode(S);
-          if Assigned(Node) then
-          begin
-            Node.Selected := True;
-            StatusBar1.Panels[0].Text := Format(RsDirectoryChanges, [S]);
-            //Exit;
-          end;
+          Node.Selected := True;
+          StatusBar1.Panels[0].Text := Format(RsDirectoryChanges, [S]);
+          //Exit;
         end;
+      end;
       2: { symbolic link }
         if Item.LinkTarget <> '' then
         begin
@@ -409,7 +473,8 @@ begin
           if Assigned(Node) then
           begin
             Node.Selected := True;
-            StatusBar1.Panels[0].Text := Format(RsSymLinkFollowed, [string(Item.FullPath()), S]);
+            StatusBar1.Panels[0].Text :=
+              Format(RsSymLinkFollowed, [string(Item.FullPath()), S]);
             //Exit;
           end
           else
@@ -417,19 +482,23 @@ begin
             I := Length(S);
             while I > 1 do
             begin
-              for I := Length(S) downto 1 do if S[I] = '\' then Break;
+              for I := Length(S) downto 1 do
+                if S[I] = '\' then
+                  Break;
               S := Copy(S, 1, I - 1);
               Node := FindTreeNode(S);
               if Assigned(Node) then
               begin
                 Node.Selected := True;
-                StatusBar1.Panels[0].Text := Format(RsSymLinkFollowed, [string(Item.FullPath), S]);
+                StatusBar1.Panels[0].Text :=
+                  Format(RsSymLinkFollowed, [string(Item.FullPath), S]);
                 Exit;
               end;
             end;
           end;
           // No target could be found ...
-          StatusBar1.Panels[0].Text := Format(RsNoTargetInNamespace, [string(Item.LinkTarget)]);
+          StatusBar1.Panels[0].Text :=
+            Format(RsNoTargetInNamespace, [string(Item.LinkTarget)]);
           //Exit;
         end;
     end;
@@ -437,15 +506,15 @@ begin
   end;
 end;
 
-procedure TMainForm.PageControl1Changing(Sender: TObject; var AllowChange: Boolean);
+procedure TMainForm.PageControl1Changing(Sender: TObject; var AllowChange: boolean);
 begin
   if PageControl1.ActivePage = TSObjectNamespace then
     FObjectList.RefreshList
   else
-    if PageControl1.ActivePage = TSMailslotsPipes then
-    begin
-      FPipes.RefreshList;
-    end;
+  if PageControl1.ActivePage = TSMailslotsPipes then
+  begin
+    FPipes.RefreshList;
+  end;
 end;
 
 procedure TMainForm.PageControl1Change(Sender: TObject);
@@ -456,10 +525,10 @@ begin
     FillTreeView;
   end
   else
-    if PageControl1.ActivePage = TSMailslotsPipes then
-    begin
-      FillMailslotsAndPipesList;
-    end;
+  if PageControl1.ActivePage = TSMailslotsPipes then
+  begin
+    FillMailslotsAndPipesList;
+  end;
 end;
 
 procedure TMainForm.MainMenuFileExitClick(Sender: TObject);
@@ -481,10 +550,12 @@ end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
 begin
-  if Assigned(FObjectList) then FObjectList.Free;
-  if Assigned(FPipes) then FPipes.Free;
-  if Assigned(FMailslots) then FMailslots.Free;
+  if Assigned(FObjectList) then
+    FObjectList.Free;
+  if Assigned(FPipes) then
+    FPipes.Free;
+  if Assigned(FMailslots) then
+    FMailslots.Free;
 end;
 
 end.
-

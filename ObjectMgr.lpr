@@ -39,6 +39,7 @@ uses
   SysUtils,
   JwaNative,
   MainFormUnit in 'MainFormUnit.pas' {MainForm},
+  frmfuzz in 'frmfuzz.pas' {FormFuzz},
   ObjectMgrHelper in 'ObjectMgrHelper.pas',
   AboutUnit in 'AboutUnit.pas' {AboutForm};
 
@@ -48,6 +49,7 @@ begin
   Application.Initialize;
   Application.Title := 'Object Namespace Viewer';
   Application.CreateForm(TMainForm, MainForm);
+  Application.CreateForm(TFormFuzz, FormFuzz);
   Application.Run;
 end.
 
